@@ -41,6 +41,18 @@ class Posts
      * @ORM\Column(type="string", length=8000)
      */
     private $contenido;
+    
+    /*Esto es una relacion entre tablas (uno a muchas) pk*/
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Comentarios", mappedBy="posts")
+     */
+    private $comentarios;  
+
+    /*Esto es una relacion entre tablas (Muchos a uno) fk*/
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="posts")
+     */
+    private $user;    
 
     public function getId(): ?int
     {

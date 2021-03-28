@@ -43,6 +43,24 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $nombre;
+    
+    /*Esto es una relacion entre tablas (uno a muchas) pk*/
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Comentarios", mappedBy="user")
+     */
+    private $comentarios;
+
+    /*Esto es una relacion entre tablas (uno a muchas) pk*/
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Posts", mappedBy="user")
+     */
+    private $posts;
+    
+    /*Esto es una relacion entre tablas (uno a muchas) pk*/
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Profesion", mappedBy="user")
+     */
+    private $profesion;      
 
     public function getId(): ?int
     {

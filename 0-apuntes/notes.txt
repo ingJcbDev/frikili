@@ -74,6 +74,25 @@ Do you want to store user data in the database (via Doctrine)? (yes/no) [yes]:
 Does this app need to hash/check user passwords? (yes/no) [yes]:
 
 
+***
+
+-- Relaciones entre tablas
+
+/*Esto es una relacion entre tablas (uno a muchas) pk*/
+/**
+ * @ORM\OneToMany(targetEntity="App\Entity\Comentarios", mappedBy="user")
+ */
+private $comentarios;  
+
+/*Esto es una relacion entre tablas (Muchos a uno) fk*/
+/**
+ * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="comentarios")
+ */
+private $user;
+
+
+
+
 
 
 

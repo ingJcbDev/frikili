@@ -26,6 +26,18 @@ class Comentarios
      * @ORM\Column(type="datetime")
      */
     private $fecha_publicacion;
+    
+    /*Esto es una relacion entre tablas (Muchos a uno) fk*/
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="comentarios")
+     */
+    private $user;  
+    
+    /*Esto es una relacion entre tablas (Muchos a uno) fk*/
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Posts", inversedBy="comentarios")
+     */
+    private $posts;          
 
     public function getId(): ?int
     {
