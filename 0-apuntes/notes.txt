@@ -1,0 +1,80 @@
+-- para crear un proyecto nuevo y completo
+symfony new frikili --full
+
+-- start server symfony
+symfony server:start
+--
+https://127.0.0.1:8000/DEV/frikili/public/index.php
+
+-- o ejecutar xampp
+-- ejemplo de como abrir el proyecto en el navegador
+http://localhost/DEV/frikili/public/index.php
+
+-- git 
+-- usuario y email
+git config user.email ing.jcb.dev@gmail.com
+git config user.name ingJcbDev
+-- Para agregar el repositorio remoto 
+git remote add origin https://github.com/ingJcbDev/frikili.git
+
+
+-- para inicializar el proyecto y cree la base de datos despues de cofigurar
+-- en el archivo (C:\xampp\htdocs\DEV\frikili\.env) la conexion
+-- despues de ejecutar este comando el va y crea la base de datos
+
+php bin/console doctrine:database:create
+
+-- resultado: Created database `frikili` for connection named default
+
+**
+
+-- Crear ORM Doctine
+php bin/console make:entity
+
+-- id
+-- no es necesario crear el id debido a que el lo crea automaticamente
+
+--resultado: Class name of the entity to create or update (e.g. DeliciousKangaroo):
+nombre de la tabla: Posts
+
+-- Cuando le damos el nombre de la entidad el nos responde que se crean los siguientes archivos
+ created: src/Entity/Posts.php
+ created: src/Repository/PostsRepository.php
+
+-- luego pide el tipo de dato que para este caso viene por defecto string
+Field type (enter ? to see all types) [string]:
+-- si se requiere un tipo de dato diferente a string se escribe el signo de pregunta => ?
+-- saldran los tipos de datos disponibles
+
+-- dependiendo el tipo de dato se escribe la longitud por defecto aqui esta 255
+Field length [255]:
+
+-- pregunta que si va a ser nulo, por defecto esta no
+Can this field be null in the database (nullable) (yes/no) [no]:
+
+***
+
+-- Cuando se termina de crear la entity
+-- procedemos a actualizar el schema 
+php bin/console doctrine:schema:update --force
+
+***
+
+-- crear la entidades utilizando bundles de ayuda
+php bin/console make:user
+responde: The name of the security user class (e.g. User) [User]: 
+
+-- Que si lo queremos gestionar atraves de doctrine
+Do you want to store user data in the database (via Doctrine)? (yes/no) [yes]:
+
+-- conque queremos ingresar y ponemos email
+Do you want to store user data in the database (via Doctrine)? (yes/no) [yes]:
+
+-- que si le queremos poner hash al password
+Does this app need to hash/check user passwords? (yes/no) [yes]:
+
+
+
+
+
+
