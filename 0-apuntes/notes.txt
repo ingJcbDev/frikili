@@ -91,6 +91,24 @@ private $comentarios;
 private $user;
 
 
+**
+
+-- Crear controlador 
+
+php bin/console make:controller
+
+-- nombre del controlador
+response: Choose a name for your controller class (e.g. FiercePopsicleController):
+RegistroController
+
+
+**
+
+-- Crear formulario
+
+php bin/console make:form
+
+
 
 
 

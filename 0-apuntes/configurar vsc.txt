@@ -1,0 +1,88 @@
+1 - Requisitos previos
+ - Instale PHP y Composer (si está en Linux use este cmd "sudo apt install php-cli composer")
+ - Crear un proyecto php vacío (en mi caso usaré un proyecto Symfony)
+
+2 - Configurar VS Code para PHP
+ - Autocompletar e Intellisense e ir a la definición
+  * Instalar PHP Intelephense
+  * Desactivar sugerencias básicas / "php.suggest.basic": false,
+  /preferencias/extensions/html/edit in setting.json
+
+  * composer req annotations  
+ - Habilitar autocompletar en comentarios / anotaciones / "editor.quickSuggestions": {"comments": true},
+ - Permitir autocompletar en pruebas (Symfony)
+        "intelephense.files.exclude": [
+        "** /. git / **",
+        "** /. svn / **",
+        "** /. hg / **",
+        "** / CVS / **",
+        "** /. DS_Store / **",
+        "** / node_modules / **",
+        "** / bower_components / **",
+        "** / vendor / ** / {Test, test, Tests, tests} / ** / * Test.php"
+        ],
+    
+    * composer req test
+
+ - Ir a la definición (crtl + clic)
+
+    * PHP Getters & Setters
+
+ - Generar captadores y definidores para propiedades de clase
+ - depuración
+  * Configurar el depurador de VS Code para escuchar Xdebug
+ - Formateo y pelusa
+  * Fijador PHP CS
+  * Integre PHP CS Fixer en VS Code ("php-cs-fixer.rules": "@PhpCsFixer",)
+    "[php]": {
+    "editor.defaultFormatter": "junstyle.php-cs-fixer",
+    "editor.formatOnSave": verdadero
+    },
+ - Bono: agregue Prettier a PHP CS Fixer (https: //github.com/prettier/plugin-ph ...)
+ - En caso de problemas con el formato al guardar
+  * "editor.formatOnSaveTimeout": 5000,
+ - Soporte Twig
+  * "emmet.includeLanguages": {"twig": "html"},
+ -- Gestión de base de datos
+
+************************************************************************************************
+************************************************************************************************
+************************************************************************************************
+
+1 - Prerequisites
+ -- Install PHP and Composer (If you are on Linux use this cmd "sudo apt install php-cli composer" )
+ -- Create an empty php project (on my case I will use a symfony project)
+
+2 - Configure VS Code for PHP
+ -- Autocomplete & Intellisense & Go to definition
+  * Install PHP Intelephense 
+  * Disable basic suggestions / "php.suggest.basic": false,
+ -- Enable autocomplete in comments / annotations /  "editor.quickSuggestions": { "comments": true },
+ -- Allow autocomplete in tests (symfony)
+        "intelephense.files.exclude": [
+        "**/.git/**",
+        "**/.svn/**",
+        "**/.hg/**",
+        "**/CVS/**",
+        "**/.DS_Store/**",
+        "**/node_modules/**",
+        "**/bower_components/**",
+        "**/vendor/**/{Test,test,Tests,tests}/**/*Test.php"
+        ],
+ -- Go to definition (crtl + click)
+ -- Generate getters and setters for class properties
+ -- Debugging
+  * Configure VS Code debugger to listen for Xdebug
+ -- Formatting & linting
+  * PHP CS Fixer
+  * Integrate PHP CS Fixer into VS Code ("php-cs-fixer.rules": "@PhpCsFixer",)
+    "[php]": {
+    "editor.defaultFormatter": "junstyle.php-cs-fixer",
+    "editor.formatOnSave": true
+    },
+ -- Bonus: add Prettier to PHP CS Fixer (https://github.com/prettier/plugin-ph...​)
+ -- In case of issues with format on save
+  * "editor.formatOnSaveTimeout": 5000,
+ -- Twig support
+  * "emmet.includeLanguages": { "twig": "html" },
+ -- Database management
